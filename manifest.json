@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Volume Extension",
+  "description": "Tab Volume Controller Extension",
+  "version": "1.0",
+  "action": {
+    "default_popup": "main.html"
+  },
+  "icons": {
+    "16": "main.png"
+  },
+  "permission": ["tabs"],
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/service-worker.js"
+  }
+}
