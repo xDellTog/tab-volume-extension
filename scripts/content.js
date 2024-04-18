@@ -9,6 +9,9 @@
       case "getVolume":
         sendResponse({ volume: getVolume() });
         break;
+      case "hasAudioSources":
+        sendResponse(hasAudioSources());
+        break;
       default:
         break;
     }
@@ -40,6 +43,11 @@ function getVolume() {
     return audioSources[0].volume * 100;
   }
   return null;
+}
+
+function hasAudioSources() {
+  const audioSources = getAudioSources();
+  return audioSources && audioSources.length > 0;
 }
 
 function getAudioSources() {

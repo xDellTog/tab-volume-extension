@@ -12,6 +12,7 @@
   "permission": ["tabs"],
   "content_scripts": [
     {
+      "css": ["main.css"],
       "js": ["scripts/content.js"],
       "matches": ["<all_urls>"]
     }
