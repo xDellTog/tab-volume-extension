@@ -13,13 +13,14 @@
 })();
 
 async function setVolumeBadge() {
-  chrome.action.setBadgeBackgroundColor({ color: "#0000AA" });
-
   const volume = await getVolume();
   if (volume != null) {
     const options = {
       text: `${volume}`,
     };
+    chrome.action.setBadgeBackgroundColor({
+      color: volume == 0 ? "#FF0000" : "#0000AA",
+    });
     chrome.action.setBadgeText(options);
   } else {
     chrome.action.setBadgeText({});
@@ -46,8 +47,6 @@ async function setTheme(theme) {
       : {
           16: "/main-dark.png",
         };
-
-  console.log(path);
 
   await chrome.action.setIcon({ path });
 }
