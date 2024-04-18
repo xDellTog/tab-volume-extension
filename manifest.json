@@ -9,15 +9,15 @@
   "icons": {
     "16": "main.png"
   },
-  "permission": ["tabs"],
+  "permission": ["tabs", "background"],
   "content_scripts": [
     {
-      "css": ["main.css"],
       "js": ["scripts/content.js"],
       "matches": ["<all_urls>"]
     }
   ],
   "background": {
-    "service_worker": "scripts/service-worker.js"
+    "service_worker": "scripts/service-worker.js",
+    "persistent": false
   }
 }

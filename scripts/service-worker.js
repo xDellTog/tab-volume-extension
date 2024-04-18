@@ -1,4 +1,8 @@
 (() => {
+  chrome.tabs.onActivated.addListener(function (activeInfo) {
+    setVolumeBadge();
+  });
+
   chrome.runtime.onMessage.addListener(function (req, sender, sendResponse) {
     switch (req.message) {
       case "setVolumeBadge":

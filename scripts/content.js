@@ -5,6 +5,7 @@
     switch (req.message) {
       case "setVolume":
         setVolume(req.volume);
+        chrome.runtime.sendMessage({ message: "setVolumeBadge" });
         break;
       case "getVolume":
         sendResponse({ volume: getVolume() });
